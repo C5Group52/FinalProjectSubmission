@@ -1,3 +1,4 @@
+HEAD
 # Onboarding & Profile
 
 Post-signup wizard that collects a new user's skills, education, languages,
@@ -130,3 +131,8 @@ uploadedAt }`.
   `const` list at the top of `onboarding_screen.dart` — no other changes
   needed, since selection state is just a `Set<String>`.
 
+
+# flutter_application_
+
+A new Flutter project.
+develop

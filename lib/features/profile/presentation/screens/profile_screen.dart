@@ -4,12 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../auth/presentation/providers/auth_providers.dart';
 import '../../../auth/presentation/widgets/sign_out_button.dart';
-import '../../../onboarding/presentation/providers/profile_providers.dart';
+import '../providers/profile_providers.dart';
 
 /// Read-only summary of the signed-in account (name, email) plus the
 /// profile data collected during onboarding (skills, education,
-/// qualifications, languages) — composed from the auth and onboarding
-/// features' existing providers rather than owning its own data layer.
+/// qualifications, languages), read through the profile feature's own
+/// repository.
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 

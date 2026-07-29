@@ -28,4 +28,25 @@ class NotificationsRemoteDataSource {
         );
   }
 
+  Future<void> create({
+    required String uid,
+    required String title,
+    required String body,
+    required String type,
+  }) {
+    return _notifications(uid).add({
+      'title': title,
+      'body': body,
+      'type': type,
+      'read': false,
+      'createdAt': FieldValue.serverTimestamp(),
+    });
+  }
+
+  Future<void> markAsRead({
+    required String uid,
+    required String notificationId,
+  }) {
+    return _notifications(uid).doc(notificationId).update({'read': true});
+  }
 }

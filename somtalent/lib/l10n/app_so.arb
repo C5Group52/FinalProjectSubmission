@@ -1,0 +1,69 @@
+{
+  "@@locale": "so",
+
+  "welcomeTitle": "Xirfadahaagu Caalamka\nBuu Ka Shaqayn Karaa",
+  "welcomeSubtitle": "La xiriir shaqooyin fog iyo fursado freelance ah oo ka socda shirkado caalami ah. Dhis mustaqbalkaaga shaqo iyadoo aan xad lahayn.",
+  "createAccount": "Samee Akoon",
+  "signIn": "Gal",
+
+  "welcomeBack": "Ku Soo Dhawoow Mar Kale",
+  "signInSubtitle": "Gal si aad u sii wadato safarkaaga",
+  "email": "Iimayl",
+  "emailHint": "you@example.com",
+  "password": "Furaha Sirta ah",
+  "yourPasswordHint": "Furahaaga sirta ah",
+  "forgotPassword": "Ma illowday furahaaga sirta ah?",
+  "or": "ama",
+  "continueWithGoogle": "Ku sii wad Google",
+  "noAccountPrompt": "Akoon ma lihid? ",
+
+  "startYourJourney": "Bilow safarka shaqadaada caalamiga ah",
+  "fullName": "Magaca Buuxa",
+  "fullNameHint": "tusaale, Hodan Ahmed",
+  "phoneNumber": "Lambarka Taleefanka",
+  "passwordHint": "Ugu yaraan 8 xaraf",
+  "continueLabel": "Sii wad",
+  "termsAgreement": "Marka aad sii wado, waxaad ogolaanaysaa ",
+  "termsOfService": "Shuruudaha Adeegga",
+  "and": " iyo ",
+  "privacyPolicy": "Siyaasadda Asturnaanta",
+  "alreadyHaveAccount": "Horey akoon ma u lahayd? ",
+
+  "goodMorning": "Subax wanaagsan",
+  "goodAfternoon": "Galab wanaagsan",
+  "goodEvening": "Fiid wanaagsan",
+  "readyToFindOpportunity": "Ma diyaar u tahay inaad hesho fursaddaada xigta?",
+  "convertEarnings": "Beddel Dakhligaaga",
+  "receiveMoneyZaad": "Lacagtaada ku hel Telesom ZAAD",
+  "earnedAmount": "${amount} oo la kasbaday!",
+  "@earnedAmount": {
+    "placeholders": { "amount": { "type": "String" } }
+  },
+  "applications": "Codsiyada",
+  "interviews": "Wareysiyada",
+  "careerSupportMeetings": "Kulamada Taageerada Shaqada",
+  "tipOfTheDay": "Talada Maanta: Astaantaada waa {pct}% dhammaystiran. Dhammaystir si aad u hesho 14 jibbaar daawasho oo badan.",
+  "@tipOfTheDay": {
+    "placeholders": { "pct": { "type": "int" } }
+  },
+  "recommendedForYou": "Kuu Talinaya",
+  "seeAll": "Dhammaan arag",
+  "noOpenRoles": "Hadda shaqo furan ma jirto — dib u eeg dhawaan.",
+  "recentActivity": "Dhaqdhaqaaqii Dhowaa",
+  "noApplicationsYet": "Codsiyada aad soo dirto ayaa halkan ka muuqan doona.",
+  "appliedTo": "Waxaad codsatay {title}",
+  "@appliedTo": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+
+  "jobMarketplace": "Suuqa Shaqooyinka",
+  "searchJobsHint": "Ku raadi cinwaanka, shirkadda, ama xirfadda",
+  "couldNotLoadJobs": "Shaqooyinka lama soo rari karin.\n{error}",
+  "@couldNotLoadJobs": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "noJobsMatchSearch": "Wax shaqo ah oo raadintaada la mid ah lama helin.",
+  "remote": "Fog",
+  "onSite": "Goobta",
+  "applyNow": "Hadda Codso"
+}

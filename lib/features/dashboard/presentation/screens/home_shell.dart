@@ -48,7 +48,9 @@ class HomeShell extends ConsumerWidget {
           NavigationDestination(
             icon: Icon(Icons.assignment_outlined),
             selectedIcon: Icon(Icons.assignment),
-            label: 'Applications',
+            // Shortened from "Applications", which wraps onto two lines at
+            // six destinations on a narrow screen.
+            label: 'Applied',
           ),
           NavigationDestination(
             icon: Icon(Icons.chat_bubble_outline),

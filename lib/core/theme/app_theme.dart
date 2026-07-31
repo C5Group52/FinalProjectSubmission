@@ -117,7 +117,11 @@ abstract final class AppTheme {
           borderRadius: BorderRadius.circular(_radius),
           side: BorderSide(color: scheme.outline),
         ),
-        labelStyle: AppTextStyles.bodySmall,
+        // AppTextStyles.bodySmall carries no colour, and setting labelStyle
+        // here replaces the colour Material would otherwise supply, so the
+        // label has to be tied to the scheme explicitly or it renders
+        // invisible against the chip.
+        labelStyle: AppTextStyles.bodySmall.copyWith(color: scheme.onSurface),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       ),
       snackBarTheme: SnackBarThemeData(

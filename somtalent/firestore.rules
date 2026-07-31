@@ -1,0 +1,113 @@
+rules_version = '2';
+
+// Mirrors docs/ERD.md exactly — every collection listed there has a rule
+// block here, and vice versa. Update both together.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    // users/{uid} — auth-linked profile fields. A user may read/update
+    // their own document but can never change their own `onboardingCompleted`
+    // flag away from what the server-side data layer sets it to via a
+    // client write is still allowed here (no Cloud Functions in this
+    // project), so we simply scope all access to the owner.
+    match /users/{uid} {
+      allow read, update: if isOwner(uid);
+      allow create: if isOwner(uid);
+      allow delete: if false;
+
+      // users/{uid}/savedJobs/{jobId}
+      match /savedJobs/{jobId} {
+        allow read, write: if isOwner(uid);
+      }
+
+      // users/{uid}/transactions/{transactionId} — earnings/withdrawals.
+      // Users may create withdrawal requests and read their own history,
+      // but never edit or delete a transaction once written (financial
+      // audit trail).
+      match /transactions/{transactionId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid);
+        allow update, delete: if false;
+      }
+
+      // users/{uid}/notifications/{notificationId}
+      match /notifications/{notificationId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid);
+        allow update: if isOwner(uid)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+        allow delete: if false;
+      }
+
+      // users/{uid}/careerMeetings/{meetingId}
+      match /careerMeetings/{meetingId} {
+        allow read, create: if isOwner(uid);
+        allow update, delete: if false;
+      }
+    }
+
+    // profiles/{uid} — 1:1 with users/{uid}, same ownership rule.
+    match /profiles/{uid} {
+      allow read, write: if isOwner(uid);
+
+      // profiles/{uid}/files/{fileId} — base64-encoded CV/portfolio files.
+      // Stored in Firestore instead of Cloud Storage (which now requires
+      // the paid Blaze plan) — see README "Known Limitations". The size
+      // check here backs up the client-side cap in
+      // AppConstants.maxUploadFileSizeBytes in case a client is bypassed.
+      match /files/{fileId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid) && request.resource.data.base64Data.size() < 1000000;
+        allow update, delete: if isOwner(uid);
+      }
+    }
+
+    // jobs/{jobId} — public read-only reference data; nobody writes from
+    // the client (managed centrally, e.g. via the Firebase console/admin
+    // SDK for this project's scope).
+    match /jobs/{jobId} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    // careerResources/{resourceId} — public read-only guidance content.
+    match /careerResources/{resourceId} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    // applications/{applicationId} — a job seeker may create their own
+    // application and read only applications they submitted. No client
+    // update/delete once submitted (status changes are reviewer-side, out
+    // of scope for this project's client app).
+    match /applications/{applicationId} {
+      allow read: if isSignedIn() && resource.data.uid == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // conversations/{conversationId} — only participants may read/send.
+    match /conversations/{conversationId} {
+      allow read: if isSignedIn() && request.auth.uid in resource.data.participantIds;
+      allow create: if isSignedIn() && request.auth.uid in request.resource.data.participantIds;
+      allow update: if isSignedIn() && request.auth.uid in resource.data.participantIds;
+
+      match /messages/{messageId} {
+        allow read: if isSignedIn()
+          && request.auth.uid in get(/databases/$(database)/documents/conversations/$(conversationId)).data.participantIds;
+        allow create: if isSignedIn()
+          && request.resource.data.senderId == request.auth.uid
+          && request.auth.uid in get(/databases/$(database)/documents/conversations/$(conversationId)).data.participantIds;
+        allow update, delete: if false;
+      }
+    }
+  }
+}

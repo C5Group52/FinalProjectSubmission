@@ -1,3 +1,11 @@
 # Flutter and Dart generated files
 .dart_tool/
 build/
+.flutter-plugins-dependencies
+
+# Firebase admin service account keys - never commit these
+*-firebase-adminsdk-*.json
+service-account*.json
+
+# Kotlin build artifacts
+android/.kotlin/

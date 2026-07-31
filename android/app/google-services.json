@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "880163359459",
+    "project_id": "somtalent-c5g52",
+    "storage_bucket": "somtalent-c5g52.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880163359459:android:289a93aa86e2c4441393d6",
+        "android_client_info": {
+          "package_name": "com.c5group52.somtalent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880163359459-h848lc598fmonv9op3u4cg94q28ofdtn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.c5group52.somtalent",
+            "certificate_hash": "524ea552778ef15fa329617a196cff1dca555700"
+          }
+        },
+        {
+          "client_id": "880163359459-tpomd83g9h1gq6hdha70d153jctqol8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA84OhA-8b_tYG8WXozmY8t38JLm_9gaq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880163359459-tpomd83g9h1gq6hdha70d153jctqol8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

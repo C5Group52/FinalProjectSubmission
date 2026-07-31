@@ -1,0 +1,69 @@
+{
+  "@@locale": "en",
+
+  "welcomeTitle": "Your Skills Can\nWork Globally",
+  "welcomeSubtitle": "Connect with remote jobs and freelance opportunities from companies worldwide. Build your career without borders.",
+  "createAccount": "Create Account",
+  "signIn": "Sign In",
+
+  "welcomeBack": "Welcome Back",
+  "signInSubtitle": "Sign in to continue your journey",
+  "email": "Email",
+  "emailHint": "you@example.com",
+  "password": "Password",
+  "yourPasswordHint": "Your password",
+  "forgotPassword": "Forgot password?",
+  "or": "or",
+  "continueWithGoogle": "Continue with Google",
+  "noAccountPrompt": "Don't have an account? ",
+
+  "startYourJourney": "Start your global career journey",
+  "fullName": "Full Name",
+  "fullNameHint": "e.g., Hodan Ahmed",
+  "phoneNumber": "Phone Number",
+  "passwordHint": "At least 8 characters",
+  "continueLabel": "Continue",
+  "termsAgreement": "By continuing, you agree to our ",
+  "termsOfService": "Terms of Service",
+  "and": " and ",
+  "privacyPolicy": "Privacy Policy",
+  "alreadyHaveAccount": "Already have an account? ",
+
+  "goodMorning": "Good morning",
+  "goodAfternoon": "Good afternoon",
+  "goodEvening": "Good evening",
+  "readyToFindOpportunity": "Ready to find your next opportunity?",
+  "convertEarnings": "Convert Your Earnings",
+  "receiveMoneyZaad": "Receive your money through Telesom ZAAD",
+  "earnedAmount": "${amount} EARNED!",
+  "@earnedAmount": {
+    "placeholders": { "amount": { "type": "String" } }
+  },
+  "applications": "Applications",
+  "interviews": "Interviews",
+  "careerSupportMeetings": "Career support meetings",
+  "tipOfTheDay": "Tip of the Day: Your profile is {pct}% complete. Finish it to get 14x more profile views.",
+  "@tipOfTheDay": {
+    "placeholders": { "pct": { "type": "int" } }
+  },
+  "recommendedForYou": "Recommended for You",
+  "seeAll": "See all",
+  "noOpenRoles": "No open roles right now — check back soon.",
+  "recentActivity": "Recent Activity",
+  "noApplicationsYet": "Applications you submit will show up here.",
+  "appliedTo": "Applied to {title}",
+  "@appliedTo": {
+    "placeholders": { "title": { "type": "String" } }
+  },
+
+  "jobMarketplace": "Job Marketplace",
+  "searchJobsHint": "Search by title, company, or skill",
+  "couldNotLoadJobs": "Could not load jobs.\n{error}",
+  "@couldNotLoadJobs": {
+    "placeholders": { "error": { "type": "String" } }
+  },
+  "noJobsMatchSearch": "No jobs match your search yet.",
+  "remote": "Remote",
+  "onSite": "On-site",
+  "applyNow": "Apply Now"
+}

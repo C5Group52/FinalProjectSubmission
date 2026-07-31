@@ -23,7 +23,7 @@ android {
     defaultConfig {
         applicationId = "com.c5group52.somtalent"
         // firebase_auth 6.x requires at least API 23.
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
